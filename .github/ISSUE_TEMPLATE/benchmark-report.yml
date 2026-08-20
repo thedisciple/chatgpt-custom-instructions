@@ -1,0 +1,88 @@
+name: Benchmark or A/B result
+description: Share a reproducible comparison of an instruction variant against a baseline.
+title: "[Eval]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing this. Reproducible negative and mixed results are just as valuable as positive ones.
+
+  - type: input
+    id: model
+    attributes:
+      label: Model and snapshot
+      description: Include the exact model identifier or the closest available date/version.
+      placeholder: "Example: GPT-5.6, tested 2026-08-20"
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: ChatGPT plan or API setup, including reasoning effort and relevant settings.
+      placeholder: "Example: ChatGPT Plus, high reasoning, web disabled"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: variant
+    attributes:
+      label: Instruction variant
+      options:
+        - v4 Compact
+        - v4 Extended
+        - v3
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: task_set
+    attributes:
+      label: Tasks or dataset
+      description: Describe the task set, sample size, and how examples were selected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Comparison method
+      description: Explain the baseline, scoring method, grader, repetitions, and controls.
+      placeholder: "Baseline vs instruction variant, same model/settings/sample..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Results
+      description: Include aggregate numbers and representative wins, failures, or regressions.
+    validations:
+      required: true
+
+  - type: input
+    id: artifacts
+    attributes:
+      label: Raw outputs or artifacts
+      description: Link raw data, scripts, or a shareable subset if available. Remove private or sensitive data.
+
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations
+      description: Note uncertainty, possible bias, parsing issues, or anything that limits the conclusion.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Reporting checks
+      options:
+        - label: I compared against a clearly defined baseline.
+          required: true
+        - label: I have not included private, confidential, or personal data.
+          required: true
+

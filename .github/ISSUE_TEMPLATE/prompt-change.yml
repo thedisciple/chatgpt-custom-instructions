@@ -1,0 +1,51 @@
+name: Prompt change
+description: Propose a focused wording change tied to a concrete failure mode.
+title: "[Prompt]: "
+body:
+  - type: textarea
+    id: failure
+    attributes:
+      label: Current failure mode
+      description: What goes wrong today, and in what kind of task or environment?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Show the smallest wording change that could address the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Provide a minimal input/output example or a reproducible test.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or rationale
+      description: Link primary sources or comparison results when the claim is externally verifiable.
+
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Trade-offs
+      description: What could this change make worse, and which prompt variants would it affect?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope checks
+      options:
+        - label: The proposal is general-purpose and contains no account-specific or personal settings.
+          required: true
+        - label: I checked whether the wording changes the published character count.
+          required: true
